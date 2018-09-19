@@ -1,0 +1,13 @@
+C:\IXUnaryConcept\UnaryConcept\UnaryConcept\bin\Release\netcoreapp2.0\UnaryConcept.deps.json
+C:\IXUnaryConcept\UnaryConcept\UnaryConcept\bin\Release\netcoreapp2.0\UnaryConcept.runtimeconfig.json
+C:\IXUnaryConcept\UnaryConcept\UnaryConcept\bin\Release\netcoreapp2.0\UnaryConcept.runtimeconfig.dev.json
+C:\IXUnaryConcept\UnaryConcept\UnaryConcept\bin\Release\netcoreapp2.0\UnaryConcept.dll
+C:\IXUnaryConcept\UnaryConcept\UnaryConcept\bin\Release\netcoreapp2.0\UnaryConcept.pdb
+C:\IXUnaryConcept\UnaryConcept\UnaryConcept\bin\Release\netcoreapp2.0\WordNet.dll
+C:\IXUnaryConcept\UnaryConcept\UnaryConcept\obj\Release\netcoreapp2.0\UnaryConcept.csprojAssemblyReference.cache
+C:\IXUnaryConcept\UnaryConcept\UnaryConcept\obj\Release\netcoreapp2.0\UnaryConcept.csproj.CoreCompileInputs.cache
+C:\IXUnaryConcept\UnaryConcept\UnaryConcept\obj\Release\netcoreapp2.0\UnaryConcept.AssemblyInfoInputs.cache
+C:\IXUnaryConcept\UnaryConcept\UnaryConcept\obj\Release\netcoreapp2.0\UnaryConcept.AssemblyInfo.cs
+C:\IXUnaryConcept\UnaryConcept\UnaryConcept\obj\Release\netcoreapp2.0\UnaryConcept.csproj.CopyComplete
+C:\IXUnaryConcept\UnaryConcept\UnaryConcept\obj\Release\netcoreapp2.0\UnaryConcept.dll
+C:\IXUnaryConcept\UnaryConcept\UnaryConcept\obj\Release\netcoreapp2.0\UnaryConcept.pdb

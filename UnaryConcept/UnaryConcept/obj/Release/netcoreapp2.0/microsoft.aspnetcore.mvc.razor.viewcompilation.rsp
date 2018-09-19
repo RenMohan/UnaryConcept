@@ -1,0 +1,10 @@
+C:\IXUnaryConcept\UnaryConcept\UnaryConcept
+--output-path=obj\Release\netcoreapp2.0\
+--application-name=UnaryConcept
+--content-root=C:\IXUnaryConcept\UnaryConcept\UnaryConcept
+--file=C:\IXUnaryConcept\UnaryConcept\UnaryConcept\Views\Home\Help.cshtml
+--file=C:\IXUnaryConcept\UnaryConcept\UnaryConcept\Views\Home\Index.cshtml
+--file=C:\IXUnaryConcept\UnaryConcept\UnaryConcept\Views\Home\Options.cshtml
+--file=C:\IXUnaryConcept\UnaryConcept\UnaryConcept\Views\Shared\_Layout.cshtml
+--file=C:\IXUnaryConcept\UnaryConcept\UnaryConcept\Views\_ViewImports.cshtml
+--file=C:\IXUnaryConcept\UnaryConcept\UnaryConcept\Views\_ViewStart.cshtml
