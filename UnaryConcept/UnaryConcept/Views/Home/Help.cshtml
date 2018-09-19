@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1">   
+    <script type="text/javascript">
+        document.title = "Help"
+    </script>
+    <style>
+        p.Help {
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        table {
+            font-family: "Times New Roman", Times, serif;
+            border-collapse: collapse;
+            width: 20%;
+        }
+
+        td, th {
+            border: 1px solid black;
+            text-align: left;
+            padding: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div>
+            <img src="~/uRevealPro_newLogo.png" alt="uRevealLogo" style="width:110px; padding-bottom:40px; height:30px; float:left">
+        </div>
+        <br>
+        <h2 align="center" style="color: white; background-color: #317399; padding: 20px;">Sample Concept Bank</h2>
+
+        <p class="Help" wrap="soft" align="left">
+            <b>The Idea:</b>
+
+            <br>------------<br>
+
+            <br>This system is designed to help you communicate your ideas to the machine vs just using your input as words. For example, when you type "movies", a dumb search machine will just look for those words. A slightly more sophisticated machine will look for the word and additional synonyms such as motion picture, flick etc. But if you are thinking of Cecil DeMille's hits such as "Ten Commandments" and "Ben Hur", the machine has no clue.<br>
+
+            <br>Now our platform helps you specify what you are thinking in easy terms.<br>
+
+            <br>So, in this case, in the search box, instead of typing "movies", you type "{movies}" and provide the machine a simple spreadsheet of what you are thinking when you say “movies”. For example you can specify in a spreadsheet:<br>
+        </p>
+
+        <table align="left">
+            <tr>
+                <th>Column 1</th>
+                <th>Column 2</th>
+            </tr>
+            <tr>
+                <td>Movies</td>
+                <td>Ten Commandments</td>
+            </tr>
+            <tr>
+                <td>Movies</td>
+                <td>Ben Hur</td>
+            </tr>
+            <tr>
+                <td>Movies</td>
+                <td>{Cecil DeMille}</td>
+            </tr>
+            <tr>
+                <td>Cecil DeMille</td>
+                <td>Cecil DeMille</td>
+            </tr>
+            <tr>
+                <td>Cecil DeMille</td>
+                <td>Madam Satan</td>
+            </tr>
+        </table>       
+        <div class="downloadSample" style="padding-top:128px" title="Please remember the 'Save' path for use with App">
+            &emsp;
+
+            @{ var savedocumentname = "ExampleConceptBank_" + @DateTime.Now.Month + @DateTime.Now.Day + @DateTime.Now.Year + @DateTime.Now.Hour + @DateTime.Now.Minute + @DateTime.Now.Second + ".csv";}
+            <a href="../SampleConceptBank.csv" download=@savedocumentname>Save this sample</a>
+
+        </div>
+        <p class="Help" wrap="soft" align="left">
+
+            Then the system will look not the word “movies” but “Ten Commandments or Ben Hur or Cecil DeMille or Madam Satan”.  To be precise, automatically it will look for: “((Ten Commandments) or Ben Hur or ((Cecil DeMille) or Madam Satan))”. We call this spreadsheet (*.csv) a "concept bank" where you store your personal ideas. You can create and use multiple concept banks.
+            <br>
+            <br>If you do not have time to create a spreadsheet, our premium version allows you to reuse concept banks created by others, use synonym expansion etc. Finally you can put the machines to work for you instead of them leading you to the answers they want you to see.<br>
+
+            <br>Have fun!!<br>
+        </p>
+    </div>
+</body>
+</html>

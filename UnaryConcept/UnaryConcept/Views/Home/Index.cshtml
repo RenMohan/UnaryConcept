@@ -1,0 +1,186 @@
+﻿    @model UnaryConcept.Model.ConceptViewModel
+    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+    <html>
+    <head>        
+        <script type="text/javascript">
+            document.title = "Conceptual computing"
+
+            var dropDownDefaultName = "Please select or upload a concept bank";
+
+            function googleQuery() {
+                var x = document.getElementById("GoogleQuery").value;
+                window.open(x);
+            }
+
+            function bingQuery() {
+                var y = document.getElementById("BingQuery").value;
+                window.open(y);
+            }
+
+            function uploadedFileName() {               
+                var Z = document.getElementById("UploadedFileName").value;
+                var a = "../" + Z;               
+                window.open(a);
+            }
+
+            function onChangeForList() {
+                var a = document.getElementById("UploadedFileNameAndDropDown").value;
+
+                if (a == dropDownDefaultName) {
+                    document.getElementById("UploadedFileName").value = "";
+                }
+                else {
+                    document.getElementById("UploadedFileName").value = a;
+                }
+            }
+
+            function queryX() {
+                var b = document.getElementsByName("fileNameUploaded").value;
+                document.getElementById("UploadedFileNameAndDropDown").value = b;
+            }
+        </script>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <style>
+            div.box {
+                align-self: center width: 300px;
+            }
+            
+            div.box textarea[type="text"] {
+                border: 2px solid black;
+                width: 500px;
+                height: 80px;
+                margin: 2px;
+                float: left;
+            }
+            
+            table.DemoTable label {
+                text-align: right;
+                float: right;
+                font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            table.DemoTable1 label {
+                text-align: right;
+                float: right;
+                font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+                padding-right: 20px;
+            }
+
+            table.DemoTable1 img {
+                float: right;
+                width: 100px;
+                height: 100px;
+                padding-right: 10px;
+            }
+
+            table.LinkTable textarea[type="text"] {
+                width: 300px;
+                height: 20px;
+                margin: 2px;
+                float: left;
+            }
+
+            table.LinkTable label {
+                text-align: right;
+                float: right;
+                font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+                padding-right: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <div>
+                <img src="~/uRevealPro_newLogo.png" alt="uRevealLogo" style="width:110px; height:30px; float:top">
+                @*<h4 align="right"><a asp-action="Options" style="visibility:hidden">Options</a></h4>*@
+            </div>
+
+            <h2 align="center" style="color:White; background-color: #317399; padding: 20px">Conk your search</h2>             
+            <div class="box">
+                <form method="post" asp-action="Index" asp-controller="Home" enctype="multipart/form-data" autocomplete="on">
+                    <div>
+                        <table class="DemoTable" style="padding-left:350px">
+                            <tr>
+                                <td> <label asp-for="SearchQuery"><strong>Search Query</strong></label></td>
+                                <td>
+                                    <textarea asp-for="SearchQuery" wrap="soft" style="width:400px; height:70px" autofocus="autofocus" placeholder="Your query or click Help for info"></textarea>
+                                    <span asp-validation-for="SearchQuery" style="color:red"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label asp-for="LibPath"><strong>Concept Bank</strong></label>
+                                </td>
+                                <td>                                    
+                                    <input asp-for="LibPath" type="file" style="width:400px; height:30px" accept=".csv" />
+
+                                    &emsp;
+                                    <a href="@Url.Action("Help","Home")" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 20px;" target="_blank">Help</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 14px">
+                                    <input  asp-for="@Model.isSynonymChecked" type="checkbox"/>Include Machine Suggestions                               
+                                </td>
+                            </tr>
+                            <tr><td></td></tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <input type="submit" value="Submit" name="button1" onclick="queryX();">
+                                      
+                                    <input asp-for="@Model.resetClicked" type="submit" value="Reset"/>
+                                </td> 
+                            </tr>
+                        </table>                       
+                        <table class="LinkTable" style="padding-left:295px">
+                            <tr>
+                                <td>
+                                    <label asp-for="UploadedFileName"><strong>Uploaded Concept Bank</strong></label>
+                                </td>
+                                <td>
+                                    @Html.DropDownListFor(model => model.UploadedFileNameAndDropDown, new SelectList(Model.UploadedFileNameAndDropDown, "UploadedFileNameAndDropDown"), new { @onchange = "onChangeForList();" })
+                                </td>
+                                <td>
+                                    <input  type="text" name="fileNameUploaded" onclick="uploadedFileName();" asp-for="UploadedFileName" wrap="soft" style="color:blue; text-decoration: underline; cursor: pointer"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>                    
+                </form>
+            <div>           
+        <table class="DemoTable1" style="padding-left:383px">
+            <tr>
+                <td>                
+                    <label asp-for="Translation"><strong>Translation</strong></label>
+                </td>
+                <td>                            
+                    <textarea asp-for="Translation" type="text" wrap="soft" style="background-color:lightgrey" autofocus="autofocus" readonly></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="~/google-logo-style.png" alt="GoogleImage">
+                </td>
+                <td>
+                    <textarea onclick="googleQuery();" asp-for="GoogleQuery" type="text" wrap="soft" style="color:blue; text-decoration: underline; cursor: pointer"></textarea>
+                </td>
+             </tr>
+             <tr>
+                <td>
+                    <img src="~/Bing_General_Teal_rgb.png" style="height: 60px;" alt="BingImage">
+                </td>
+                <td>
+                    <textarea onclick="bingQuery();" asp-for="BingQuery" type="text" wrap="soft" style="color:blue; text-decoration: underline; cursor: pointer"></textarea>
+                </td>
+              </tr>
+            </table>                                      
+            </div>
+        </div>
+    </div>            
+</body>
+</html>
