@@ -29,6 +29,9 @@ namespace UnaryConcept.Controllers
             APIModel aPIModel = new APIModel();
             String errorMsg = String.Empty;
             GeneralFunctions generalFunctions = new GeneralFunctions();
+            string fileNameUploaded = string.Empty;
+            
+            generalFunctions.ActivityLogMessageToFile("GetQuery (Method Begining)", "APIController", searchQuery, fileNameUploaded, physicalPath, _environment, string.Empty);
 
             if (string.IsNullOrWhiteSpace(searchQuery) && string.IsNullOrWhiteSpace(physicalPath))
             {
@@ -62,7 +65,6 @@ namespace UnaryConcept.Controllers
             }
             else
             {
-                string fileNameUploaded = string.Empty;
                 if (physicalPath.Contains(@"\"))
                     fileNameUploaded = physicalPath.Substring(physicalPath.LastIndexOf('\\') + 1);
                 else
@@ -101,8 +103,7 @@ namespace UnaryConcept.Controllers
                     //Uploading .csv file into wwwroot path.
                     UploadFileResult = generalFunctions.UploadFile(null, fileNameUploaded, _environment, true, searchQuery);
 
-                    generalFunctions.ActivityLogMessageToFile("UploadFile (Method End)", "APIController", searchQuery, physicalPath, String.Empty, _environment, "Output from UploadFile method : FileName --" + UploadFileResult.Result.Item1 + "; FilePhysicalPath : " + UploadFileResult.Result.Item2.PhysicalPath);
-                    
+                    generalFunctions.ActivityLogMessageToFile("UploadFile (Method End)", "APIController", searchQuery, physicalPath, String.Empty, _environment, "Output from UploadFile method : FileName --" + UploadFileResult.Result.Item1 + "; FilePhysicalPath : " + UploadFileResult.Result.Item2.PhysicalPath);                   
                 }
 
                 if (!string.IsNullOrWhiteSpace(UploadFileResult.Result.Item3))
@@ -130,13 +131,13 @@ namespace UnaryConcept.Controllers
                     //Parsing the Search query and creating Google and Bing queries.
                     ConceptViewModel result = qp.ParseQuery(searchQuery, fileInfo.PhysicalPath, out aPIModel, out errorMsg, cvm, _environment);
 
-                    generalFunctions.ActivityLogMessageToFile("ParseQuery (Method End)", "APIController", searchQuery, physicalPath, string.Empty, _environment, "Output from ParseQuery method : UploadedFileName = " + result.UploadedFileName +
-                        "; UploadedFileNameFromDropDownList = " + result.UploadedFileNameAndDropDown + "; Translation = " + result.Translation + "; GoogleQuery = " + result.GoogleQuery + "; BingQuery = " + result.BingQuery);
+                    generalFunctions.ActivityLogMessageToFile("ParseQuery (Method End)", "APIController", searchQuery, physicalPath, string.Empty, _environment, "Output from ParseQuery method : Translation = " + aPIModel.Translation + "; GoogleQuery = " + aPIModel.GoogleQuery + "; BingQuery = " + aPIModel.BingQuery);
                     
                     if (!string.IsNullOrWhiteSpace(errorMsg))
                         aPIModel.ErrorMessage = errorMsg;
                 }
             }
+            generalFunctions.ActivityLogMessageToFile("GetQuery (Method End)", "APIController", searchQuery, fileNameUploaded, physicalPath, _environment, string.Empty);
             return aPIModel;
         }
     }
