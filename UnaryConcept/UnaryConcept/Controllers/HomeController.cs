@@ -22,7 +22,6 @@ namespace UnaryConcept.Controllers
         private List<string> allCSVFilesList = new List<string>();
         ConceptViewModel resultCvm = new ConceptViewModel();
         string dropDownDefaultName = "Please select or upload a concept bank";
-        private readonly ILogger<HomeController> _logger;
 
         public HomeController(IHostingEnvironment environment, ILogger<HomeController> logger)
         {
@@ -34,7 +33,6 @@ namespace UnaryConcept.Controllers
             resultCvm.UploadedFileNameAndDropDown = fileNamesList.Select(x => x.Name).ToList();
             allCSVFilesList = resultCvm.UploadedFileNameAndDropDown;
             allCSVFilesList.Insert(0, dropDownDefaultName);
-            _logger = logger;
         }
 
         public IActionResult Index()
@@ -51,7 +49,6 @@ namespace UnaryConcept.Controllers
 
             GeneralFunctions generalFunctions = new GeneralFunctions();
 
-            _logger.LogInformation("Entered controller");
             if (vm.resetClicked == "Reset")
             {
                 ConceptViewModel resultCvm = new ConceptViewModel();
