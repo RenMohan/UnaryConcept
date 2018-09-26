@@ -89,7 +89,7 @@ namespace UnaryConcept.Core
                     }
                     else
                     {
-                        if(FileExists(filePath) == false)
+                        if(FileExists(filePath, searchQuery, fileName, environment) == false)
                         {
                             errorMsg = "File does not exist.Please upload the file through UI";
                         }
@@ -107,36 +107,28 @@ namespace UnaryConcept.Core
             return new Tuple<string, IFileInfo, string>(fileName, fileInfo, errorMsg);
         }
 
-        static bool FileExists(string file)
-
+        public static bool FileExists(string filePath, string searchQuery, string fileName, IHostingEnvironment environment)
         {
+            string pathCheck = Path.GetDirectoryName(filePath);
 
-            string pathCheck = Path.GetDirectoryName(file);
-
-            string filePart = Path.GetFileName(file);
+            string filePart = Path.GetFileName(filePath);
 
             if (string.IsNullOrEmpty(pathCheck))
-
             {
-
-                throw new ArgumentException("The file must include a full path", file);
-
+                GeneralFunctions generalFunctions = new GeneralFunctions();
+                string errorMsg = "The file must include a full path";
+                generalFunctions.ErrorLogMessageToFile(errorMsg, "FileExists", "GeneralFunctions", searchQuery, fileName, filePath, environment);      
             }
 
             string[] checkFiles = Directory.GetFiles(pathCheck, filePart, SearchOption.TopDirectoryOnly);
 
             if (checkFiles != null && checkFiles.Length > 0)
-
             {
-
                 //must be a binary compare
 
                 return Path.GetFileName(checkFiles[0].ToLowerInvariant()) == filePart.ToLowerInvariant();
-
             }
-
             return false;
-
         }
 
         public Boolean ValidateBalancedParentheses(String conceptQuery)
