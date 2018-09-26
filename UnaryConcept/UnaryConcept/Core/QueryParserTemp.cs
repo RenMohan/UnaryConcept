@@ -31,7 +31,6 @@ namespace UnaryConcept.Core
                 List<String> notPresentInFileList = new List<string>();
 
                 //first validate the query
-                GeneralFunctions gf = new GeneralFunctions();
 
                 do
                 {
@@ -88,9 +87,9 @@ namespace UnaryConcept.Core
                                                 line = strlist[0] + ',' + strlist[1];
 
                                             count++;
-                                            if (gf.ValidateBalancedParentheses(line))
+                                            if (generalFunctions.ValidateBalancedParentheses(line))
                                             {
-                                                if (gf.ValidateBalancedCurlyBraces(line))
+                                                if (generalFunctions.ValidateBalancedCurlyBraces(line))
                                                 {
                                                     String parentConcept = line.Substring(0, line.IndexOf(","));
 
