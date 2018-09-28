@@ -4,6 +4,6 @@ This repository contains Unary Concept implementation- a subset of full function
 
 The output of this implementation that reads ideas as input is a query that is agnostic to a specific search engine syntax. The query can run on most of the popular search engines directly.
 
-Please refer to Wiki for more information and contact us at support@ureveal.com anytime if you have any questions.
+Please refer to Wiki for more information. For try out link, restful api consructs, more examples, user guide etc please send an email to support@ureveal.com.
 
 Thank you very much
