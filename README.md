@@ -7,3 +7,6 @@ The output of this implementation that reads ideas as input is a query that is a
 Please refer to Wiki for more information. For try out link, restful api consructs, more examples, user guide etc please send an email to support@ureveal.com.
 
 Thank you very much
+
+IMPORTANT NOTE:
+uReveal provides this source code subject to open source conditions. However, uReveal owns certain related intellectual property and reserves all rights in its intellectual property, grants no rights not expressly granted, and does not confer or grant any other rights. Ureveal provides only a revocable, limited, non-exclusive, nontransferable right to use the provided source code solely for use with other open source projects. For additional permission, products or license rights, contact sales@ureveal.com.
